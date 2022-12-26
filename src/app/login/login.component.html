@@ -1,0 +1,20 @@
+<div class="login-component">
+    <h1 mat-dialog-title>Iniciar sesión</h1>
+    <form action="">
+        <div mat-dialog-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Email:</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password:</mat-label>
+                <input formControlName="password" matInput type="password">
+            </mat-form-field>
+            <mat-checkbox>Recuérdame en este equipo</mat-checkbox>
+        </div>
+        <div mat-dialog-actions align="end">
+            <button mat-stroked-button class="btn btn-secondary" (click)="cerrarLoginDialog()">Cancelar</button>
+            <button mat-stroked-button color="primary">Entrar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.container{
+    height: 94vh;
+}
+
+sidenav {
+    height: 100%;
+    padding-left: 1.5vw;
+}
