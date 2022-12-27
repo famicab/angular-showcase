@@ -9,8 +9,13 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'angular-showcase';
-
-  constructor(public dialog: MatDialog){}
+  isLogged: boolean = false;
+  nombreUsuario: string = ''
+  constructor(public dialog: MatDialog){
+   this.isLogged = sessionStorage.getItem('token') !== null ? true: false;
+   const usuarioLogin = sessionStorage.getItem('nombre');
+   this.nombreUsuario =  usuarioLogin !== null? usuarioLogin: '';
+  }
 
   openLoginDialog(){
     this.dialog.open(LoginComponent, {
@@ -18,5 +23,10 @@ export class AppComponent {
       maxWidth: '600px',
       minWidth: '200px'
     });
+  }
+
+  cerrarSesion(){
+    sessionStorage.clear();
+    this.isLogged = false;
   }
 }

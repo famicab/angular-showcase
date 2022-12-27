@@ -4,9 +4,14 @@
   </button>
   <span>Aplicación del SIGMA</span>
   <span class="example-spacer"></span>
-  <button mat-button aria-label="Login button" (click)="openLoginDialog()">
-    Iniciar sesión
-  </button>
+  <ng-container *ngIf="isLogged; else login_button">
+    <button mat-button [matMenuTriggerFor]="menu">{{nombreUsuario}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Mis datos</button>
+      <button mat-menu-item (click)="cerrarSesion()">Desconectar</button>
+    </mat-menu>
+
+  </ng-container>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
@@ -17,14 +22,20 @@
 <mat-sidenav-container class="container">
   <mat-sidenav mode="side" opened #sidenav class="sidenav">
     <mat-nav-list>
-      <a mat-list-item routerLink="/about-us">About us</a>
+      <a mat-list-item routerLink="/home">Home</a>
       <a mat-list-item routerLink="/prices">Prices</a>
       <a mat-list-item routerLink="/start-page">Start page</a>
       <a mat-list-item routerLink="/offer">Offer</a>
       <a mat-list-item routerLink="/contact">Contact</a>
     </mat-nav-list>
-    
+
   </mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-<router-outlet></router-outlet>
+<ng-template #login_button>
+  <button mat-button aria-label="Login button" (click)="openLoginDialog()">
+    Iniciar sesión
+  </button>
+</ng-template>

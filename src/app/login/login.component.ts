@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginData } from '../interfaces/LoginData';
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public loginData: LoginData,
     private snackbar: MatSnackBar,
-    
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +38,10 @@ export class LoginComponent implements OnInit {
     if (email === 'admin@gmail.com' && password === '1234') {
       this.snackbar.open('Inicio de sesión correcto', 'Cerrar');
       sessionStorage.setItem('token', '1');
+      sessionStorage.setItem('nombre', email);
       this.sesionIniciada = true;
-      // this.router.navigate(['expositor']);
+      this.router.navigate(['home']);
+      window.location.reload(); // Workaround, remove in the future
     } else {
       this.snackbar.open('Datos incorrectos', 'Cerrar');
     }
