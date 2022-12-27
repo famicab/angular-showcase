@@ -1,10 +1,11 @@
 <div class="login-component">
     <h1 mat-dialog-title>Iniciar sesión</h1>
-    <form action="">
+    <form [formGroup]="formularioLogin">
         <div mat-dialog-content>
             <mat-form-field appearance="fill">
                 <mat-label>Email:</mat-label>
-                <input matInput>
+                <input formControlName="email" matInput>
+                <mat-error *ngIf="formularioLogin.get('email')?.hasError('email')">El formato no es correcto</mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Password:</mat-label>
@@ -14,7 +15,7 @@
         </div>
         <div mat-dialog-actions align="end">
             <button mat-stroked-button class="btn btn-secondary" (click)="cerrarLoginDialog()">Cancelar</button>
-            <button mat-stroked-button color="primary">Entrar</button>
+            <button mat-stroked-button color="primary" (click)="iniciarSesion()">Entrar</button>
         </div>
     </form>
 </div>
