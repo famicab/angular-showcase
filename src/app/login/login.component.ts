@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   cerrarLoginDialog() {
+    this.formularioLogin.clearValidators();
     this.dialogRef.close();
   }
 

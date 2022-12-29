@@ -19,7 +19,7 @@ export class AppComponent {
 
   openLoginDialog(){
     this.dialog.open(LoginComponent, {
-      width: '400px',
+      width: '500px',
       maxWidth: '600px',
       minWidth: '200px'
     });
@@ -28,5 +28,6 @@ export class AppComponent {
   cerrarSesion(){
     sessionStorage.clear();
     this.isLogged = false;
+    window.location.reload(); // Workaround, remove in the future
   }
 }

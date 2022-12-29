@@ -9,9 +9,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatMenuModule} from '@angular/material/menu'; 
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
 
 const materialModules = [
   MatToolbarModule,
@@ -22,9 +27,14 @@ const materialModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
   MatCheckboxModule,
   MatSnackBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatExpansionModule,
+  MatDividerModule
 ]
 
 @NgModule({
