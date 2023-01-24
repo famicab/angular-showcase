@@ -6,12 +6,14 @@
                 <mat-form-field appearance="outline" class="porcen-90">
                     <mat-label>Nombre:</mat-label>
                     <input formControlName="nombre" matInput>
+                    <mat-error *ngIf="formularioRegistro.get('nombre')?.hasError('required')">Campo obligatorio</mat-error>
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline" class="porcen-90">
                     <mat-label>Apellidos:</mat-label>
                     <input formControlName="apellidos" matInput>
+                    <mat-error *ngIf="formularioRegistro.get('apellidos')?.hasError('required')">Campo obligatorio</mat-error>
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile [colspan]="2">
@@ -23,7 +25,7 @@
             <mat-grid-tile>
                 <mat-form-field appearance="outline" class="porcen-90">
                     <mat-label>País</mat-label>
-                    <mat-select [(ngModel)]="selectedId" name="food">
+                    <mat-select name="pais" formControlName="pais">
                         <mat-option *ngFor="let pais of paises" [value]="pais.id">
                             {{pais.nombre}}
                         </mat-option>
@@ -40,6 +42,8 @@
                 <mat-form-field appearance="outline" class="porcen-95">
                     <mat-label>Correo electrónico:</mat-label>
                     <input formControlName="correoElectronico" matInput>
+                    <mat-error *ngIf="formularioRegistro.get('correoElectronico')?.hasError('required')">Campo obligatorio</mat-error>
+                    <mat-error *ngIf="formularioRegistro.get('correoElectronico')?.hasError('email')">Formato incorrecto</mat-error>
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile [colspan]="2">
@@ -53,18 +57,24 @@
                 <mat-form-field appearance="outline" class="porcen-50">
                     <mat-label>Usuario:</mat-label>
                     <input formControlName="usuario" matInput>
+                    <mat-error *ngIf="formularioRegistro.get('usuario')?.hasError('required')">Campo obligatorio</mat-error>
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline" class="porcen-90">
                     <mat-label>Clave:</mat-label>
-                    <input formControlName="clave" matInput>
+                    <input formControlName="clave" matInput type="password">
+                    <mat-error *ngIf="formularioRegistro.get('clave')?.hasError('required')">La contraseña debe tener una longitud mínima de 8 caracteres</mat-error>
+                    <mat-error *ngIf="formularioRegistro.get('clave')?.hasError('minlength')">La contraseña debe tener una longitud mínima de 8 caracteres</mat-error>
+                    <mat-error *ngIf="formularioRegistro.get('clave')?.hasError('maxlength')">La contraseña debe tener una longitud máxima de 20 caracteres</mat-error>
+                    
                 </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
                 <mat-form-field appearance="outline" class="porcen-90">
                     <mat-label>Repetir clave:</mat-label>
-                    <input formControlName="repetirClave" matInput>
+                    <input formControlName="repetirClave" matInput type="password" [errorStateMatcher]="claveStateMatcher">
+                    <mat-error *ngIf="formularioRegistro.hasError('claveNoCoincide')">Las contraseñas no coinciden</mat-error>
                 </mat-form-field>
             </mat-grid-tile>
         </mat-grid-list>
@@ -90,13 +100,13 @@
         </mat-expansion-panel>
     </div>
 
+    <mat-checkbox labelPosition="before" formControlName="aceptaAvisoLegal">Aceptar aviso legal:*</mat-checkbox>
 
-    <mat-checkbox labelPosition="before">Aceptar aviso legal:</mat-checkbox>
     <br>
-    <mat-checkbox labelPosition="before" [disabled]="true">Deseo recibir noticias actualizadas de esta web por email:</mat-checkbox>
+    <mat-checkbox labelPosition="before" formControlName="deseaRecibirNoticias">Deseo recibir noticias actualizadas de esta web por email:</mat-checkbox>
     <br>
     <div class="derecha">
-        <button mat-raised-button color="primary" class="flotar-derecha">Enviar</button>
+        <button mat-raised-button color="primary" (click)="crearUsuario()"  class="flotar-derecha">Enviar</button>
     </div>
 
 </form>
