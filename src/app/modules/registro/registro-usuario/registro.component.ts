@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Pais } from '../interfaces/Pais';
-import { Usuario } from '../interfaces/Usuario';
-import { ClaveStateMatcher, passwordMatchingValidator } from '../shared/validators/samepassword.validator';
+import { Pais } from '../../../interfaces/Pais';
+import { Usuario } from '../../../interfaces/Usuario';
+import { ClaveStateMatcher, passwordMatchingValidator } from '../../../shared/validators/samepassword.validator';
 
 @Component({
   selector: 'app-registro',
