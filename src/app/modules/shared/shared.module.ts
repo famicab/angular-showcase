@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
 
 const materialModules = [
   MatToolbarModule,
@@ -34,7 +35,8 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatExpansionModule,
-  MatDividerModule
+  MatDividerModule,
+  MatTableModule
 ]
 
 @NgModule({
