@@ -18,6 +18,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import { MatIconRegistry } from "@angular/material/icon";
 
 const materialModules = [
   MatToolbarModule,
