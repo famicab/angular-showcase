@@ -2,12 +2,15 @@
     flex: 1 1 auto;
 }
 
-.container{
-    height: 94vh;
-}
-
 sidenav {
     height: 100%;
     padding-left: 1.5vw;
+}
+
+.main-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
 }
 
