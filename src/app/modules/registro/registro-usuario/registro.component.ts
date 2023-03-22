@@ -9,7 +9,7 @@ import { ClaveStateMatcher, passwordMatchingValidator } from '../../../shared/va
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent {
 
